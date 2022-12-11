@@ -18,13 +18,7 @@ public class MatrixTools {
     }
 
     public static int[][] matrixTransform(int[][] matrix, int metoda) {
-        int[][] transformedMatrix;
-        if(matrix.length != matrix[0].length){
-            transformedMatrix = new int[matrix[0].length][matrix.length];
-        }
-        else{
-            transformedMatrix = new int[matrix.length][matrix[0].length];
-        }
+        int[][] transformedMatrix =new int[matrix[0].length][matrix.length];        
         if (metoda == 1) {
             for (int i = 0; i < transformedMatrix.length; i++) {
                 for (int j = 0; j < transformedMatrix[i].length; j++) {
