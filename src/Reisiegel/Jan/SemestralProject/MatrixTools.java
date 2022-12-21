@@ -7,8 +7,9 @@ package Reisiegel.Jan.SemestralProject;
 import java.util.Scanner;
 
 /**
- *
- * @author jan
+ * MatrixTools class works with matrices
+ * @author janreisiegel
+ * @version 1.0.0.21122022
  */
 public class MatrixTools {
 
@@ -16,43 +17,23 @@ public class MatrixTools {
 
     private MatrixTools() {
     }
-    
-    public static void main(String[] args) {
-        while (true) {
-            System.out.println("Pocet radku: ");
-            int n = sc.nextInt();
-            if (n <= 0) {
-                return;
-            }
-            System.out.println("Pocet sloupcu: ");
-            int m = sc.nextInt();
-            System.out.println("Zadejte hodnoty matice: ");
-            int[][] matrix = loadInt(n, m);
-            System.out.println("Matice: ");
-            display(matrix);
-            while (true) {
-                System.out.println("Zadej hodnotu transformace (-1=-90, 1=90 a 0=0): ");
-                int tr = sc.nextInt();
-                if (tr != 0 && Math.abs(tr) != 1) {
-                    break;
-                }
-                matrix = matrixTransform(matrix, tr);
-                System.out.println("Transformovana matice: ");
-                display(matrix);
-            }
-        }
-    }
 
-    public static int[][] matrixTransform(int[][] matrix, int metoda) {
+    /**
+     * Method to rotate matrix by 90 degrees
+     * @param matrix Matrix to rotate
+     * @param method How many degrees to matrix will be rotated (-1 for -90 degres, 1 for 90 degres and 0 for non rotate) 
+     * @return Rotated matrix
+     */
+    public static int[][] matrixTransform(int[][] matrix, int method) {
         int[][] transformedMatrix =new int[matrix[0].length][matrix.length];        
-        if (metoda == 1) {
+        if (method == 1) {
             for (int i = 0; i < transformedMatrix.length; i++) {
                 for (int j = 0; j < transformedMatrix[i].length; j++) {
                     transformedMatrix[i][j] = matrix[j][matrix[0].length - 1 - i];
                 }
             }
             return transformedMatrix;
-        } else if (metoda == -1) {
+        } else if (method == -1) {
             for (int i = 0; i < transformedMatrix.length; i++) {
                 for (int j = 0; j < transformedMatrix[i].length; j++) {
                     transformedMatrix[i][j] = matrix[matrix.length - 1 - j][i];
@@ -63,6 +44,12 @@ public class MatrixTools {
         return matrix;
     }
 
+    /**
+     * Method that reads a matrix from user by rows
+     * @param n Number of rows
+     * @param m Number of columns
+     * @return Matrix with n rows and m columns
+     */
     public static int[][] loadInt(int n, int m) {
         int[][] a = new int[n][m];
         for (int i = 0; i < a.length; i++) {
@@ -72,7 +59,11 @@ public class MatrixTools {
         }
         return a;
     }
-
+    
+    /**
+     * Method to write matrix to console
+     * @param matrix The matrix of Double values to be printed
+     */
     public static void display(double[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
@@ -83,6 +74,10 @@ public class MatrixTools {
     }
 
     //pretizeni metody, overload
+    /**
+     * Method to write matrix to console
+     * @param matrix The matrix of Integer values to be printed
+     */
     public static void display(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {

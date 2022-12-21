@@ -8,7 +8,7 @@ import static Reisiegel.Jan.SemestralProject.UI.*;
 
 /**
  *
- * @author jan
+ * @author janreisiegel
  */
 public class SemestralProject {
 
@@ -36,7 +36,9 @@ public class SemestralProject {
             }
         }
     }
-
+    /**
+     * Application of Semestral Project to the main program
+     */
     public static void matrixTransform() {
         while (true) {
             System.out.println("Pocet radku: ");
