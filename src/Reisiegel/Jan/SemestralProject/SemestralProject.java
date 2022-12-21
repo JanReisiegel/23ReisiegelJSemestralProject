@@ -38,23 +38,28 @@ public class SemestralProject {
     }
 
     public static void matrixTransform() {
-        System.out.println("Pocet radku: ");
-        int n = sc.nextInt();
-        System.out.println("Pocet sloupcu: ");
-        int m = sc.nextInt();
-        System.out.println("Zadejte hodnoty matice: ");
-        int[][] matrix = MatrixTools.loadInt(n, m);
-        System.out.println("Matice: ");
-        MatrixTools.display(matrix);
         while (true) {
-            System.out.println("Zadej hodnotu transformace (-1=-90, 1=90 a 0=0): ");
-            int tr = sc.nextInt();
-            if (tr != 0 && Math.abs(tr) != 1) {
+            System.out.println("Pocet radku: ");
+            int n = sc.nextInt();
+            if (n <= 0) {
                 return;
             }
-            matrix = MatrixTools.matrixTransform(matrix, tr);
-            System.out.println("Transformovana matice: ");
+            System.out.println("Pocet sloupcu: ");
+            int m = sc.nextInt();
+            System.out.println("Zadejte hodnoty matice: ");
+            int[][] matrix = MatrixTools.loadInt(n, m);
+            System.out.println("Matice: ");
             MatrixTools.display(matrix);
+            while (true) {
+                System.out.println("Zadej hodnotu transformace (-1=-90, 1=90 a 0=0): ");
+                int tr = sc.nextInt();
+                if (tr != 0 && Math.abs(tr) != 1) {
+                    break;
+                }
+                matrix = MatrixTools.matrixTransform(matrix, tr);
+                System.out.println("Transformovana matice: ");
+                MatrixTools.display(matrix);
+            }
         }
     }
 

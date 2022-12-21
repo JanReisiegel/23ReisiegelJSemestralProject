@@ -16,6 +16,32 @@ public class MatrixTools {
 
     private MatrixTools() {
     }
+    
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("Pocet radku: ");
+            int n = sc.nextInt();
+            if (n <= 0) {
+                return;
+            }
+            System.out.println("Pocet sloupcu: ");
+            int m = sc.nextInt();
+            System.out.println("Zadejte hodnoty matice: ");
+            int[][] matrix = loadInt(n, m);
+            System.out.println("Matice: ");
+            display(matrix);
+            while (true) {
+                System.out.println("Zadej hodnotu transformace (-1=-90, 1=90 a 0=0): ");
+                int tr = sc.nextInt();
+                if (tr != 0 && Math.abs(tr) != 1) {
+                    break;
+                }
+                matrix = matrixTransform(matrix, tr);
+                System.out.println("Transformovana matice: ");
+                display(matrix);
+            }
+        }
+    }
 
     public static int[][] matrixTransform(int[][] matrix, int metoda) {
         int[][] transformedMatrix =new int[matrix[0].length][matrix.length];        
