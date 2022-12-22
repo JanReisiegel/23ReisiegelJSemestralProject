@@ -39,7 +39,7 @@ public class SemestralProject {
     /**
      * Application of Semestral Project to the main program
      */
-    public static void matrixTransform() {
+    private static void matrixTransform() {
         while (true) {
             System.out.println("Pocet radku: ");
             int n = sc.nextInt();
