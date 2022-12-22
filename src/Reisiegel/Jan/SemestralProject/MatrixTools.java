@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * MatrixTools class works with matrices
  * @author janreisiegel
- * @version 1.0.0.21122022
+ * @version 1.0.1.22122022
  */
 public class MatrixTools {
 
@@ -29,7 +29,7 @@ public class MatrixTools {
         if (method == 1) {
             for (int i = 0; i < transformedMatrix.length; i++) {
                 for (int j = 0; j < transformedMatrix[i].length; j++) {
-                    transformedMatrix[i][j] = matrix[j][matrix[0].length - 1 - i];
+                    transformedMatrix[i][j] = matrix[j][matrix[j].length - 1 - i];
                 }
             }
             return transformedMatrix;
@@ -41,7 +41,8 @@ public class MatrixTools {
             }
             return transformedMatrix;
         }
-        return matrix;
+        transformedMatrix = matrix.clone();
+        return transformedMatrix; //matrix;
     }
 
     /**
